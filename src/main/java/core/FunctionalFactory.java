@@ -29,7 +29,7 @@ public class FunctionalFactory extends BrowserFactory{
 	public void startBrowser(String url)
 	{
 		try {
-			createInstance(Config.BROWSER_TYPE);
+			createInstance("firefox");
 			getDriver().get(url);
 
 		} catch (Exception e) {
@@ -67,7 +67,8 @@ public class FunctionalFactory extends BrowserFactory{
 	{
 		//WebElement waited=new WebDriverWait(getDriver(),10).until(ExpectedConditions.elementToBeClickable(element));
 		try {
-			new WebDriverWait(getDriver(),10).until(ExpectedConditions.elementToBeClickable(element)).click();
+			
+			getDriver().findElement(element).click();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -94,7 +95,7 @@ public class FunctionalFactory extends BrowserFactory{
 	{
 		try {
 			wait(field);
-			getDriver().findElement(field).clear();
+		//	getDriver().findElement(field).clear();
 			getDriver().findElement(field).sendKeys(text);
 		} catch (Exception e) {
 

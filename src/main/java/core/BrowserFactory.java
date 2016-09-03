@@ -16,7 +16,7 @@ public class BrowserFactory extends WebDriverFactory {
 
 		WebDriver driver = null;
 		if (browserName.toLowerCase().contains("firefox")) {
-			System.setProperty("webdriver.firefox.marionette","/home/cresto/Documents/agilematrixzone/geckodriver");
+		    System.setProperty("webdriver.firefox.marionette","/home/cresto/Documents/agilematrixzone/geckodriver");
 			DesiredCapabilities capabilities = DesiredCapabilities.firefox();
 			capabilities.setCapability("marionette", true);
 			driver = new FirefoxDriver(capabilities);
@@ -40,8 +40,7 @@ public class BrowserFactory extends WebDriverFactory {
 		
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
-
-		setWebDriver(eventDriver);
+		setWebDriver(driver);
 		return getDriver();
 	}
 
