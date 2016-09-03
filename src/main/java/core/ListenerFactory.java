@@ -10,6 +10,7 @@ public class ListenerFactory extends TestListenerAdapter{
 		log("Test Started....");
 		 long id = Thread.currentThread().getId();
 	        System.out.println("Before test-method. Thread id is: " + id);
+	      
 		
 	}
 

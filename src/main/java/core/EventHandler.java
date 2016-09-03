@@ -1,5 +1,6 @@
 package core;
 
+import org.junit.Ignore;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -57,9 +58,9 @@ public class EventHandler implements WebDriverEventListener{
 		// TODO Auto-generated method stub
 		
 	}
-
+@Ignore
 	public void beforeFindBy(By arg0, WebElement arg1, WebDriver arg2) {
-		System.out.println("Before FINDING "+arg1.toString());
+		
 		// TODO Auto-generated method stub
 		
 	}
