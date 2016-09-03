@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>AutoAMZ</groupId>
   <artifactId>AutoAMZ</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0</version>
   <distributionManagement>
 		<repository>
 			<id>internal.repo</id>
@@ -34,7 +34,7 @@
 						<include>**/*</include>
 					</includes>
 					 <!-- <project.url>https://github.com/agilematrix/mvn-repo.git</project.url>  -->
-					<repositoryName>alexander</repositoryName>      <!-- github repo name -->
+					<repositoryName>AutoAMZ</repositoryName>      <!-- github repo name -->
 					<repositoryOwner>agilematrix</repositoryOwner>    <!-- github username -->
 				</configuration>
 				<executions>
