@@ -34,13 +34,14 @@ public class BrowserFactory extends WebDriverFactory {
 			driver = new ChromeDriver(dc);
 
 		}
+		
 		 EventFiringWebDriver eventDriver = new EventFiringWebDriver(driver);		 
 			EventHandler handler = new EventHandler();
 			eventDriver.register(handler);
 		
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		setWebDriver(driver);
+			/*eventDriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+			eventDriver.manage().window().maximize();*/
+		setWebDriver(eventDriver);
 		return getDriver();
 	}
 

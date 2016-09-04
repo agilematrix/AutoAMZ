@@ -2,7 +2,7 @@ package core;
 
 import org.openqa.selenium.WebDriver;
 
-public class WebDriverFactory {
+public class WebDriverFactory extends ListenerFactory{
 	
 	private static  ThreadLocal<WebDriver> webDriver = new ThreadLocal<WebDriver>() ;
 	 

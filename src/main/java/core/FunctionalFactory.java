@@ -5,26 +5,29 @@ import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class FunctionalFactory extends BrowserFactory{
-	
+
 	static String filePath="/home/cresto/Documents/agilematrixzone/ScreenShots";
-    public static void takeScreenShot(String methodName)
-    {    	
-    	 File scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
-         //The below method will save the screen shot in d drive with test method name 
-            try {
-				FileUtils.copyFile(scrFile, new File(filePath+methodName+".png"));
-				System.out.println("***Placed screen shot in "+filePath+" ***");
-			} catch (IOException e)
-            {
-				e.printStackTrace();
-			}
-    }
+	public static void takeScreenShot(String methodName)
+	{    	
+		File scrFile = ((TakesScreenshot)getDriver()).getScreenshotAs(OutputType.FILE);
+		//The below method will save the screen shot in d drive with test method name 
+		try {
+			FileUtils.copyFile(scrFile, new File(filePath+methodName+".png"));
+			System.out.println("***Placed screen shot in "+filePath+" ***");
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
 
 	public void startBrowser(String url)
 	{
@@ -36,6 +39,16 @@ public class FunctionalFactory extends BrowserFactory{
 			e.printStackTrace();
 		}
 	}
+	/**
+	 * 
+	 * @param element
+	 * @return
+	 */
+	public String getText(By element)
+	{
+
+		return getDriver().findElement(element).getText();
+	}
 	public void startBrowser()
 	{
 		try {
@@ -46,9 +59,17 @@ public class FunctionalFactory extends BrowserFactory{
 			e.printStackTrace();
 		}
 	}
-	
-	
 
+
+	 public static void highlightElement(By by)
+	 {
+		
+		 WebElement element= getDriver().findElement(by);  
+		  
+		 
+		  ((JavascriptExecutor) getDriver()).executeScript("arguments[0].style.border='3px dotted green'", element);
+		  
+		 }
 	public void closeBrowser()
 	{
 		try {
@@ -57,6 +78,7 @@ public class FunctionalFactory extends BrowserFactory{
 			e.printStackTrace();
 		}
 	}
+
 
 	/**
 	 * Click webElement
@@ -67,7 +89,8 @@ public class FunctionalFactory extends BrowserFactory{
 	{
 		//WebElement waited=new WebDriverWait(getDriver(),10).until(ExpectedConditions.elementToBeClickable(element));
 		try {
-			
+			System.out.println("Trying to Click " + element.toString());
+			wait(element);
 			getDriver().findElement(element).click();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +118,8 @@ public class FunctionalFactory extends BrowserFactory{
 	{
 		try {
 			wait(field);
-		//	getDriver().findElement(field).clear();
+	
+			//	getDriver().findElement(field).clear();
 			getDriver().findElement(field).sendKeys(text);
 		} catch (Exception e) {
 
@@ -119,6 +143,7 @@ public class FunctionalFactory extends BrowserFactory{
 	{
 		try {
 			new WebDriverWait(getDriver(),10).until(ExpectedConditions.presenceOfElementLocated(element));
+			highlightElement(element);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

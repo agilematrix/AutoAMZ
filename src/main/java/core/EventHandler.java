@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
-public class EventHandler implements WebDriverEventListener{
+public class EventHandler extends  FunctionalFactory implements WebDriverEventListener {
 
 	public void afterChangeValueOf(WebElement arg0, WebDriver arg1, CharSequence[] arg2) {
 		// TODO Auto-generated method stub
@@ -19,7 +19,7 @@ public class EventHandler implements WebDriverEventListener{
 	}
 
 	public void afterFindBy(By arg0, WebElement arg1, WebDriver arg2) {
-		// TODO Auto-generated method stub
+	System.out.println("inside afterFindBY " +arg0);
 		
 	}
 
@@ -58,11 +58,9 @@ public class EventHandler implements WebDriverEventListener{
 		// TODO Auto-generated method stub
 		
 	}
-@Ignore
+
 	public void beforeFindBy(By arg0, WebElement arg1, WebDriver arg2) {
-		
-		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void beforeNavigateBack(WebDriver arg0) {
