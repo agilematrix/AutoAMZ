@@ -39,6 +39,8 @@ public class FunctionalFactory extends BrowserFactory{
 			e.printStackTrace();
 		}
 	}
+	
+	
 	/**
 	 * 
 	 * @param element
